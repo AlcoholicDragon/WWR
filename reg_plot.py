@@ -4,8 +4,12 @@ from matplotlib.pyplot import *
 
 sns.set_theme()
 
-dat = pd.read_csv("tempYearly.csv")
+tem = pd.read_csv("CSV_files/first/tempYearly.csv")
 
-sns.lineplot(x="Year", y="Temperature", data=dat)
+rai = pd.read_csv("CSV_files/first/rainYearly.csv")
+
+tem["Rainfall"]=rai["Rainfall"]
+
+sns.regplot(x="Rainfall", y="Temperature", data=tem)
     
 show()
