@@ -46,8 +46,10 @@ for j in tem["Temperature"]:
         tem.loc[ct,"Temperature"]=med_t
     ct+=1
 
-#plotting the graph
+#plotting the graph 
 
-sns.regplot(x="Rainfall",y="Temperature",data=tem[(0.0 <= tem['Rainfall']) & (tem['Rainfall'] < 10.0) & (0.0 <= tem['Temperature']) & (tem['Temperature'] < 50.0)]) 
+ntem = tem[(0.0 <= tem['Rainfall']) & (tem['Rainfall'] < 10.0) & (0.0 <= tem['Temperature']) & (tem['Temperature'] < 50.0)]
+
+sns.regplot(x="Rainfall",y="Temperature",data=ntem) 
 
 show()
